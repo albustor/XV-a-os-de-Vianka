@@ -1,0 +1,39 @@
+{
+  "entities": {
+    "Post": {
+      "title": "Social Wall Post",
+      "description": "A message or photo shared by an invited guest on the social wall.",
+      "type": "object",
+      "properties": {
+        "authorName": {
+          "type": "string",
+          "description": "The name of the guest who posted."
+        },
+        "message": {
+          "type": "string",
+          "description": "The message content of the post."
+        },
+        "imageUrl": {
+          "type": "string",
+          "description": "Optional URL of a photo uploaded by the guest."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The timestamp when the post was created."
+        },
+        "uid": {
+          "type": "string",
+          "description": "The unique ID of the user who created the post."
+        }
+      },
+      "required": ["authorName", "message", "createdAt", "uid"]
+    }
+  },
+  "firestore": {
+    "/posts/{postId}": {
+      "schema": "Post",
+      "description": "Collection of all social wall posts."
+    }
+  }
+}

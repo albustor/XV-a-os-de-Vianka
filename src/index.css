@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", serif;
+  --font-display: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+  
+  /* Lavender & Lilac Palette */
+  --color-lavender-50: #f8f7ff;
+  --color-lavender-100: #f0edff;
+  --color-lavender-200: #e0dbff;
+  --color-lavender-300: #c8bfff;
+  --color-lavender-400: #a899ff;
+  --color-lavender-500: #b19cd9;
+  --color-lavender-600: #967bb6;
+  --color-lavender-700: #7b5e94;
+  --color-lavender-800: #604373;
+  --color-lavender-900: #4a3358;
+
+  --color-lilac-500: #c8a2c8;
+  
+  /* Warm Beige & Sand Palette */
+  --color-beige-50: #faf9f6;
+  --color-beige-100: #f5f5dc;
+  --color-beige-200: #ede9d0;
+  --color-beige-300: #e3d9b5;
+  --color-beige-400: #d2b48c;
+  --color-beige-500: #c2a37a;
+
+  /* Gold Accents */
+  --color-gold-300: #e8d0a3;
+  --color-gold-400: #d9b475;
+  --color-gold-500: #c99a4e;
+  --color-gold-600: #ba853f;
+  --color-gold-700: #9e6d35;
+}
+
+@layer base {
+  body {
+    @apply bg-beige-50 text-lavender-900 font-sans antialiased selection:bg-lavender-200;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif text-lavender-900;
+  }
+}
+
+.glass {
+  @apply bg-white/40 backdrop-blur-md border border-white/20;
+}
+
+.lavender-gradient {
+  @apply bg-gradient-to-br from-lavender-300 via-lavender-500 to-lavender-700;
+}
+
+.text-lavender-gradient {
+  @apply bg-gradient-to-br from-lavender-400 via-lavender-600 to-lavender-800 bg-clip-text text-transparent;
+}
+
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@keyframes slow-zoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); }
+}
+
+.animate-slow-zoom {
+  animation: slow-zoom 20s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.animate-float {
+  animation: float 6s infinite ease-in-out;
+}
+
+@keyframes butterfly-fly {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(100px, -50px) rotate(10deg); }
+  50% { transform: translate(200px, 0) rotate(-10deg); }
+  75% { transform: translate(100px, 50px) rotate(5deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+.animate-butterfly {
+  animation: butterfly-fly 15s infinite linear;
+}
